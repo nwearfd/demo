@@ -12,6 +12,7 @@ public class BoardService {
     private TestMapper testMapper;
 
     public String TestPage(Model model) {
+        model.addAttribute("boardList", testMapper.findAll());
         return "index";
     }
 }
