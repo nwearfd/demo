@@ -2,7 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.database.mybatis.TestMapper">
-    <select id="findAll" resultType="com.example.demo.database.dto.BoardDTO">
+    <select id="selectList" resultType="com.example.demo.database.dto.BoardDTO">
         select idx, name, content, writer, date_format(b_date, '%Y-%m-%d') as b_date from board
+    </select>
+
+    <select id="selectById" parameterType="com.example.demo.database.dto.BoardDTO" resultType="com.example.demo.database.dto.BoardDTO">
+        select idx, name, content, writer, date_format(b_date, '%Y-%m-%d') as b_date from board where idx = #{idx}
     </select>
 </mapper>

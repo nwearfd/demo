@@ -7,5 +7,6 @@ import java.util.List;
 
 @Mapper
 public interface TestMapper {
-    List<BoardDTO> findAll();
+    List<BoardDTO> selectList();
+    BoardDTO selectById(BoardDTO dto);
 }

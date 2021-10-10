@@ -1,5 +1,6 @@
 package com.example.demo.Service;
 
+import com.example.demo.database.dto.BoardDTO;
 import com.example.demo.database.mybatis.TestMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,12 @@ public class BoardService {
     private TestMapper testMapper;
 
     public String TestPage(Model model) {
-        model.addAttribute("boardList", testMapper.findAll());
+        model.addAttribute("boardList", testMapper.selectList());
         return "index";
+    }
+
+    public String ViewPage(Model model, BoardDTO dto) {
+        model.addAttribute("boardView", testMapper.selectById(dto));
+        return "view";
     }
 }
