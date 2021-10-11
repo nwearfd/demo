@@ -9,4 +9,16 @@
     <select id="selectById" parameterType="com.example.demo.database.dto.BoardDTO" resultType="com.example.demo.database.dto.BoardDTO">
         select idx, name, content, writer, date_format(b_date, '%Y-%m-%d') as b_date from board where idx = #{idx}
     </select>
+
+    <update id="update" parameterType="com.example.demo.database.dto.BoardDTO">
+        update board set name = #{name}, content = #{content} where idx = #{idx}
+    </update>
+
+    <delete id="delete" parameterType="com.example.demo.database.dto.BoardDTO">
+        delete from board where idx = #{idx}
+    </delete>
+
+    <insert id="insert" parameterType="com.example.demo.database.dto.BoardDTO">
+        insert into board (writer, b_date, name, content) values(#{writer}, #{b_date}, #{name}, #{content})
+    </insert>
 </mapper>

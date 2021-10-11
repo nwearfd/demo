@@ -11,14 +11,18 @@
     <title>view</title>
 </head>
 <body>
-<form>
+<form action="/update.do?idx=${boardUpdate.idx}" method="post">
     <table border="1">
         <thead>
         <tr>
             <th>작성자</th>
-            <td>${boardView.writer}</td>
+            <td>
+                <input type="text" name="writer" value="${boardUpdate.writer}" readonly>
+            </td>
             <th>작성일</th>
-            <td>${boardView.b_date}</td>
+            <td>
+                <input type="text" name="b_date" value="${boardUpdate.b_date}" readonly>
+            </td>
         </tr>
         </thead>
         <tbody>
@@ -27,7 +31,7 @@
                 제목
             </td>
             <td colspan="2">
-                ${boardView.name}
+                <input type="text" name="name" value="${boardUpdate.name}">
             </td>
         </tr>
         <tr>
@@ -35,14 +39,12 @@
                 내용
             </td>
             <td colspan="2">
-                ${boardView.content}
+                <textarea name="content">${boardUpdate.content}</textarea>
             </td>
         </tr>
         <tr>
             <td colspan="4">
-                <button class="list_btn"><a href="/">홈으로</a></button>
-                <button class="up_btn"><a href="/update?idx=${boardView.idx}">수정</a></button>
-                <button class="del_btn"><a href="/delete?idx=${boardView.idx}">삭제</a></button>
+                <button class="list_btn">수정완료</button>
             </td>
         </tr>
         </tbody>

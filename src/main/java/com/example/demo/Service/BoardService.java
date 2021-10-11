@@ -21,4 +21,24 @@ public class BoardService {
         model.addAttribute("boardView", testMapper.selectById(dto));
         return "view";
     }
+
+    public String UpdatePage(Model model, BoardDTO dto) {
+        model.addAttribute("boardUpdate", testMapper.selectById(dto));
+        return "update";
+    }
+    public String UpdateDo(BoardDTO dto) {
+        testMapper.update(dto);
+        return "redirect:/";
+    }
+    public String delete(BoardDTO dto) {
+        testMapper.delete(dto);
+        return "redirect:/";
+    }
+    public String insert(BoardDTO dto) {
+        return "insert";
+    }
+    public String insertDo(BoardDTO dto) {
+        testMapper.insert(dto);
+        return "redirect:/";
+    }
 }

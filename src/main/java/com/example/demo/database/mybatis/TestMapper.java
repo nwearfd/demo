@@ -9,4 +9,7 @@ import java.util.List;
 public interface TestMapper {
     List<BoardDTO> selectList();
     BoardDTO selectById(BoardDTO dto);
+    void update(BoardDTO dto);
+    void delete(BoardDTO dto);
+    void insert(BoardDTO dto);
 }
